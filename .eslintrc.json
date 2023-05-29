@@ -1,6 +1,8 @@
 {
   "extends": [
     "plugin:@next/next/recommended",
+    "eslint:recommended",
+    "next",
     "standard-with-typescript"
   ],
   "parserOptions": {
