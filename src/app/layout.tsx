@@ -1,3 +1,4 @@
+import { Header } from '@/components/header'
 import './globals.css'
 import { Nunito } from 'next/font/google'
 
@@ -15,7 +16,11 @@ export default function RootLayout ({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={nunito.className}>{children}</body>
+      <body className={`${nunito.className} bg-zinc-950 text-zinc-500`}>
+        <Header />
+
+        {children}
+      </body>
     </html>
   )
 }

@@ -1,31 +1,27 @@
-import Link from 'next/link'
-import { compareDesc, format, parseISO } from 'date-fns'
-import { allPosts, type Post } from 'contentlayer/generated'
+'use client'
 
-function PostCard (post: Post): JSX.Element {
-  return (
-    <div className="mb-8">
-      <h2 className="mb-1 text-xl">
-        <Link href={post.url} className="text-blue-700 hover:text-blue-900 dark:text-blue-400">
-          {post.title}
-        </Link>
-      </h2>
-      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(post.date), 'd/MM/yyyy')}
-      </time>
-      <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />
-    </div>
-  )
-}
+import { compareDesc } from 'date-fns'
+import { allPosts } from 'contentlayer/generated'
 
+import { Article } from '@/components/article'
+
+// Loading test
+// async function getData (): Promise<unknown> {
+//   return await new Promise((resolve) => setTimeout(resolve, 10000))
+// }
+
+// export default async function Home (): Promise<JSX.Element>
 export default function Home (): JSX.Element {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
+  // Loading test
+  // await getData()
+
   return (
-    <div className="mx-auto max-w-xl py-8">
+    <div className="mx-auto max-w-xl py-8" id="home">
       <h1 className="mb-8 text-center text-2xl font-black">Blog</h1>
       {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
+        <Article key={idx} {...post} />
       ))}
     </div>
   )
