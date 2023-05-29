@@ -1,8 +1,6 @@
 {
   "extends": [
     "plugin:@next/next/recommended",
-    "eslint:recommended",
-    "next",
     "standard-with-typescript"
   ],
   "parserOptions": {
@@ -12,6 +10,7 @@
     "react-hooks"
   ],
   "rules": {
+    "@typescript-eslint/key-spacing": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   }
